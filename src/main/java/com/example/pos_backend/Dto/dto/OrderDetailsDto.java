@@ -1,6 +1,5 @@
 package com.example.pos_backend.Dto.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,11 +7,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class CustomerDto {
-    private String nic;
-    private String name;
-    private String address;
-    private String tel;
-    private String regDate;
+public class OrderDetailsDto {
+    private String order_id;
+    private String item_id;
+    private int qty;
+    private double unitPrice;
+    private double total;
 
 }
