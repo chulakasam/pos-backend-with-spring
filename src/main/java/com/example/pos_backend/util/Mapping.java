@@ -25,13 +25,13 @@ public class Mapping {
     public List<CustomerDto> asUserDTOList(List<CustomerEntity> customerEntityList){
         return modelMapper.map(customerEntityList, new TypeToken<List<CustomerDto>>(){}.getType());
     }
-    public ItemDto toNoteDto(ItemEntity itemEntity){
+    public ItemDto toItemDto(ItemEntity itemEntity){
         return modelMapper.map(itemEntity, ItemDto.class);
     }
-    public ItemEntity toNoteEntity(ItemDto itemDto){
+    public ItemEntity toItemEntity(ItemDto itemDto){
         return modelMapper.map(itemDto,ItemEntity.class);
     }
-    public List<ItemDto> asNoteDtoList(List<ItemEntity>itemEntities){
+    public List<ItemDto> asItemDtoList(List<ItemEntity>itemEntities){
         return modelMapper.map(itemEntities, new TypeToken<List<ItemDto>>() {}.getType());
     }
 }

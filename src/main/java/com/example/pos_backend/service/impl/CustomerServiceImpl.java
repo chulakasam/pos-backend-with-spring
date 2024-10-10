@@ -25,7 +25,7 @@ public class CustomerServiceImpl implements CustomerService {
     public void saveCustomer(CustomerDto customerDto) {
         CustomerEntity save_customer = customerDao.save(customerMapping.toUserEntity(customerDto));
         if(save_customer==null){
-            throw new DataPersistException("customer not found");
+            throw new DataPersistException("customer not saved");
         }
     }
 
