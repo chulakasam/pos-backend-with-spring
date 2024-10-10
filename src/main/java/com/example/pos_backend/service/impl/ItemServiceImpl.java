@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @Transactional
 public class ItemServiceImpl implements ItemService {
@@ -31,5 +33,17 @@ public class ItemServiceImpl implements ItemService {
     public ItemDto getItemById(String code) {
         ItemEntity select_item = itemDao.getReferenceById(code);
         return itemMapping.toItemDto(select_item);
+    }
+
+    @Override
+    public boolean updateItem(String code, ItemDto itemDto) {
+        Optional<ItemEntity> tmpItem = itemDao.findById(code);
+        if(tmpItem.isPresent()){
+            tmpItem.get().setName(itemDto.getName());
+            tmpItem.get().setDescription(itemDto.getDescription());
+            tmpItem.get().setQty(itemDto.getQty());
+            tmpItem.get().setUnitPrice(itemDto.getUnitPrice());
+        }
+        return false;
     }
 }

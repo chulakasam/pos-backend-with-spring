@@ -6,4 +6,6 @@ public interface ItemService {
     void saveItem(ItemDto itemDto);
 
     ItemDto getItemById(String code);
+
+    boolean updateItem(String code, ItemDto itemDto);
 }
