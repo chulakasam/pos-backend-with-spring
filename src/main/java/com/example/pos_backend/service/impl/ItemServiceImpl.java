@@ -5,6 +5,7 @@ import com.example.pos_backend.Dao.ItemDao;
 import com.example.pos_backend.Dto.dto.ItemDto;
 import com.example.pos_backend.Entity.ItemEntity;
 import com.example.pos_backend.exceotion.DataPersistException;
+import com.example.pos_backend.exceotion.UserNotFoundException;
 import com.example.pos_backend.service.ItemService;
 import com.example.pos_backend.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,15 @@ public class ItemServiceImpl implements ItemService {
             tmpItem.get().setUnitPrice(itemDto.getUnitPrice());
         }
         return false;
+    }
+
+    @Override
+    public void deleteItem(String code) {
+        Optional<ItemEntity> selectItem = itemDao.findById(code);
+        if(!selectItem.isPresent()){
+            throw new UserNotFoundException("Item with id " + code + " not found");
+        }else {
+            itemDao.deleteById(code);
+        }
     }
 }

@@ -8,4 +8,7 @@ public interface ItemService {
     ItemDto getItemById(String code);
 
     boolean updateItem(String code, ItemDto itemDto);
+
+    void deleteItem(String code);
 }
+
