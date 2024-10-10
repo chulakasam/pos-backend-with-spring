@@ -26,4 +26,10 @@ public class ItemServiceImpl implements ItemService {
             throw new DataPersistException("Item not Saved !!!");
         }
     }
+
+    @Override
+    public ItemDto getItemById(String code) {
+        ItemEntity select_item = itemDao.getReferenceById(code);
+        return itemMapping.toItemDto(select_item);
+    }
 }

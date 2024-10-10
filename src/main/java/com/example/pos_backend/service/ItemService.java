@@ -4,4 +4,6 @@ import com.example.pos_backend.Dto.dto.ItemDto;
 
 public interface ItemService {
     void saveItem(ItemDto itemDto);
+
+    ItemDto getItemById(String code);
 }
