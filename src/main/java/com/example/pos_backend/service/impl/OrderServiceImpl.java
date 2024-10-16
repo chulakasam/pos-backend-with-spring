@@ -35,6 +35,16 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void saveOrder(OrderDto orderDTO, List<OrderDetailsDto> orderDetailsDTOS) {
+        orderDTO.setOrderId(AppUtil.generateOrderId());
+        OrderEntity save_order = orderDao.save(mapping.toOrderEntity(orderDTO));
 
+        if(save_order==null){
+            throw new DataPersistException("Order not saved !!!");
+        }
+        for(OrderDetailsDto orderDetailsDto:orderDetailsDTOS){
+            orderDetailsDto.setDetailsId(AppUtil.generateOrderDetailsId());
+            mapping.toOrderDetailsEntity(orderDetailsDto);
+
+        }
     }
 }

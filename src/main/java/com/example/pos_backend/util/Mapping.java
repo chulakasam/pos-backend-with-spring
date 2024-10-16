@@ -2,9 +2,11 @@ package com.example.pos_backend.util;
 
 import com.example.pos_backend.Dto.dto.CustomerDto;
 import com.example.pos_backend.Dto.dto.ItemDto;
+import com.example.pos_backend.Dto.dto.OrderDetailsDto;
 import com.example.pos_backend.Dto.dto.OrderDto;
 import com.example.pos_backend.Entity.CustomerEntity;
 import com.example.pos_backend.Entity.ItemEntity;
+import com.example.pos_backend.Entity.OrderDetailsEntity;
 import com.example.pos_backend.Entity.OrderEntity;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -42,5 +44,9 @@ public class Mapping {
     }
     public OrderDto toOrderDTO(OrderEntity orderEntity){
         return modelMapper.map(orderEntity, OrderDto.class);
+    }
+
+    public OrderDetailsEntity toOrderDetailsEntity(OrderDetailsDto orderDetailsDto) {
+            return modelMapper.map(orderDetailsDto, OrderDetailsEntity.class);
     }
 }
