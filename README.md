@@ -24,3 +24,14 @@ DELETE  : api/v1/item/{itemCode} ->(use to delete item)
 * Order end point :
 POST : api/v1/order -> (use to make a order)
 
+# Technologies 
+Framework : Spring Framework
+Database  : mySQL
+Dependency: Maven
+ORM Tool  : hibernate with JPA
+Language  : java
+version   : JDK 21
+Request and Response : JSON
+
+# License
+project is licensed through the  LICENSE.txt file.
