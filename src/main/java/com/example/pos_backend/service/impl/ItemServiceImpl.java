@@ -42,7 +42,7 @@ public class ItemServiceImpl implements ItemService {
         if(tmpItem.isPresent()){
             tmpItem.get().setName(itemDto.getName());
             tmpItem.get().setDescription(itemDto.getDescription());
-            tmpItem.get().setQty(itemDto.getQty());
+            tmpItem.get().setQty(Integer.parseInt(itemDto.getQty()));
             tmpItem.get().setUnitPrice(itemDto.getUnitPrice());
         }
         return false;

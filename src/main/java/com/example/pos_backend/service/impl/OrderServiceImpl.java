@@ -6,6 +6,8 @@ import com.example.pos_backend.Dao.OrderDao;
 import com.example.pos_backend.Dao.OrderDetailsDao;
 import com.example.pos_backend.Dto.dto.OrderDetailsDto;
 import com.example.pos_backend.Dto.dto.OrderDto;
+import com.example.pos_backend.Entity.ItemEntity;
+import com.example.pos_backend.Entity.OrderDetailsEntity;
 import com.example.pos_backend.Entity.OrderEntity;
 import com.example.pos_backend.exceotion.DataPersistException;
 import com.example.pos_backend.service.OrderDetailsService;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -43,7 +46,21 @@ public class OrderServiceImpl implements OrderService {
         }
         for(OrderDetailsDto orderDetailsDto:orderDetailsDTOS){
             orderDetailsDto.setDetailsId(AppUtil.generateOrderDetailsId());
-            mapping.toOrderDetailsEntity(orderDetailsDto);
+            OrderDetailsEntity orderDetailsEntity = mapping.toOrderDetailsEntity(orderDetailsDto);
+            orderDetailsEntity.setOrder(save_order);
+            orderDetailsDao.save(orderDetailsEntity);
+
+            Optional<ItemEntity> choose_item = itemDao.findById(String.valueOf(orderDetailsDto.getOrderQty()));
+
+            if(choose_item.isPresent()){
+                ItemEntity itemEntity = choose_item.get();
+                int update_Qty = itemEntity.getQty() - orderDetailsDto.getOrderQty();
+                if (update_Qty<=0) {
+                    throw new DataPersistException("Item is out of stock :"+ orderDetailsDto.getItem());
+                }
+                itemEntity.setQty(update_Qty);
+                itemDao.save(itemEntity);
+            }
 
         }
     }
