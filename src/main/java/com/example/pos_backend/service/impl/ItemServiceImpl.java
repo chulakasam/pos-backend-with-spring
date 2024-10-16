@@ -43,7 +43,7 @@ public class ItemServiceImpl implements ItemService {
             tmpItem.get().setName(itemDto.getName());
             tmpItem.get().setDescription(itemDto.getDescription());
             tmpItem.get().setQty(Integer.parseInt(itemDto.getQty()));
-            tmpItem.get().setUnitPrice(itemDto.getUnitPrice());
+            tmpItem.get().setUnitPrice(Integer.parseInt(itemDto.getUnitPrice()));
         }
         return false;
     }

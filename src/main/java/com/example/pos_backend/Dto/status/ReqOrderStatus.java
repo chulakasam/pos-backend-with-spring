@@ -1,4 +1,8 @@
 package com.example.pos_backend.Dto.status;
 
-public interface ReqOrderStatus {
+import com.example.pos_backend.Dto.SuperDto;
+
+import java.io.Serializable;
+
+public interface ReqOrderStatus extends Serializable, SuperDto {
 }

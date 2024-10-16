@@ -21,7 +21,7 @@ public class ItemEntity implements SuperEntity{
     private String name;
     private String description;
     private int qty;
-    private String unitPrice;
+    private int unitPrice;
 //    @OneToMany(mappedBy = "item")
 //    private List<OrderDetailsEntity> orderDetailsEntityList;
 }
