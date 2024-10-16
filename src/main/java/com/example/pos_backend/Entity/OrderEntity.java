@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -13,15 +14,10 @@ import java.util.List;
 @Entity
 @Table(name = "orders")
 public class OrderEntity implements SuperEntity {
-   @Id
-    private String orderID;
-    private String date;
-    private String cusID;
-    private double discount_value;
-    private double sub_total;
-    @ManyToOne
-    @JoinColumn(name = "customerId",nullable = false)
-    private CustomerEntity customer;
-    @OneToMany(mappedBy = "order")
-    private List<OrderDetailsEntity> orderDetailsList;
+ @Id
+ private String orderId;
+ private String customerId;
+ private LocalDate orderDate;
+ @OneToMany(mappedBy = "order",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+ private List<OrderDetailsEntity> orderDetailsEntityList;
 }

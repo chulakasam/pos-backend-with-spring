@@ -10,4 +10,7 @@ public class AppUtil {
         return "ITEM-"+ UUID.randomUUID();
     }
 
+    public static String generateOrderDetailId() {
+        return "Order-"+ UUID.randomUUID();
+    }
 }
