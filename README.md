@@ -21,4 +21,6 @@ GET  : api/v1/item/{itemCode}  -> (use to search by id item)
 PUT  : api/v1/item/{itemCode}  ->(use to update item)
 DELETE  : api/v1/item/{itemCode} ->(use to delete item)
 
+* Order end point :
+POST : api/v1/order -> (use to make a order)
 
