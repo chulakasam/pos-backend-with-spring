@@ -6845,3 +6845,249 @@ java.net.URLClassLoader@76a3e297
 11:21:28.005 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor -- Using 'application/json', given [*/*] and supported [application/json]
 11:21:28.005 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor -- Writing [CustomerDto(customerId=200010124569, name=sakuni, address=galle, tel=071456984, regDate=2012-10-14)]
 11:21:28.006 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet -- Completed 200 OK
+11:26:57.325 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet -- DELETE "/POS_Backend/api/v1/customer/199874859632", parameters={}
+11:26:57.325 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -- Mapped to com.example.pos_backend.controller.CustomerController#deleteCustomer(String)
+11:26:57.326 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager -- Creating new transaction with name [com.example.pos_backend.service.impl.CustomerServiceImpl.deleteCustomer]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+11:26:57.326 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager -- Opened new EntityManager [SessionImpl(1017575384<open>)] for JPA transaction
+11:26:57.326 [http-nio-8080-exec-10] DEBUG o.h.e.t.internal.TransactionImpl -- On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+11:26:57.326 [http-nio-8080-exec-10] DEBUG o.h.e.t.internal.TransactionImpl -- begin
+11:26:57.326 [http-nio-8080-exec-10] DEBUG o.s.j.d.DriverManagerDataSource -- Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/SuperMarket?createDatabaseIfNotExist=true]
+11:26:57.784 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager -- Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@7d9bfde3]
+11:26:57.785 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager -- Found thread-bound EntityManager [SessionImpl(1017575384<open>)] for JPA transaction
+11:26:57.785 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager -- Participating in existing transaction
+11:26:57.996 [http-nio-8080-exec-10] DEBUG org.hibernate.orm.sql.exec -- Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+11:26:57.996 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL -- select ce1_0.customerId,ce1_0.address,ce1_0.name,ce1_0.regDate,ce1_0.tel from customer ce1_0 where ce1_0.customerId=?
+11:26:58.289 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager -- Initiating transaction rollback
+11:26:58.289 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager -- Rolling back JPA transaction on EntityManager [SessionImpl(1017575384<open>)]
+11:26:58.289 [http-nio-8080-exec-10] DEBUG o.h.e.t.internal.TransactionImpl -- rolling back
+11:26:58.348 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager -- Closing JPA EntityManager [SessionImpl(1017575384<open>)] after transaction
+11:26:58.379 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet -- Failed to complete request: com.example.pos_backend.exceotion.UserNotFoundException
+11:27:23.640 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet -- DELETE "/POS_Backend/api/v1/customer/2000101245693", parameters={}
+11:27:23.640 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -- Mapped to com.example.pos_backend.controller.CustomerController#deleteCustomer(String)
+11:27:23.641 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager -- Creating new transaction with name [com.example.pos_backend.service.impl.CustomerServiceImpl.deleteCustomer]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+11:27:23.641 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager -- Opened new EntityManager [SessionImpl(1574038839<open>)] for JPA transaction
+11:27:23.641 [http-nio-8080-exec-3] DEBUG o.h.e.t.internal.TransactionImpl -- On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+11:27:23.641 [http-nio-8080-exec-3] DEBUG o.h.e.t.internal.TransactionImpl -- begin
+11:27:23.641 [http-nio-8080-exec-3] DEBUG o.s.j.d.DriverManagerDataSource -- Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/SuperMarket?createDatabaseIfNotExist=true]
+11:27:23.734 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager -- Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@57298647]
+11:27:23.734 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager -- Found thread-bound EntityManager [SessionImpl(1574038839<open>)] for JPA transaction
+11:27:23.734 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager -- Participating in existing transaction
+11:27:23.735 [http-nio-8080-exec-3] DEBUG org.hibernate.orm.sql.exec -- Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+11:27:23.735 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL -- select ce1_0.customerId,ce1_0.address,ce1_0.name,ce1_0.regDate,ce1_0.tel from customer ce1_0 where ce1_0.customerId=?
+11:27:23.739 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager -- Initiating transaction rollback
+11:27:23.739 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager -- Rolling back JPA transaction on EntityManager [SessionImpl(1574038839<open>)]
+11:27:23.739 [http-nio-8080-exec-3] DEBUG o.h.e.t.internal.TransactionImpl -- rolling back
+11:27:23.740 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager -- Closing JPA EntityManager [SessionImpl(1574038839<open>)] after transaction
+11:27:23.741 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet -- Failed to complete request: com.example.pos_backend.exceotion.UserNotFoundException
+11:27:29.371 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet -- DELETE "/POS_Backend/api/v1/customer/200010124569", parameters={}
+11:27:29.372 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -- Mapped to com.example.pos_backend.controller.CustomerController#deleteCustomer(String)
+11:27:29.372 [http-nio-8080-exec-5] DEBUG o.s.orm.jpa.JpaTransactionManager -- Creating new transaction with name [com.example.pos_backend.service.impl.CustomerServiceImpl.deleteCustomer]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+11:27:29.372 [http-nio-8080-exec-5] DEBUG o.s.orm.jpa.JpaTransactionManager -- Opened new EntityManager [SessionImpl(1330463051<open>)] for JPA transaction
+11:27:29.372 [http-nio-8080-exec-5] DEBUG o.h.e.t.internal.TransactionImpl -- On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+11:27:29.372 [http-nio-8080-exec-5] DEBUG o.h.e.t.internal.TransactionImpl -- begin
+11:27:29.372 [http-nio-8080-exec-5] DEBUG o.s.j.d.DriverManagerDataSource -- Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/SuperMarket?createDatabaseIfNotExist=true]
+11:27:29.964 [http-nio-8080-exec-5] DEBUG o.s.orm.jpa.JpaTransactionManager -- Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@45b52a3b]
+11:27:29.964 [http-nio-8080-exec-5] DEBUG o.s.orm.jpa.JpaTransactionManager -- Found thread-bound EntityManager [SessionImpl(1330463051<open>)] for JPA transaction
+11:27:29.964 [http-nio-8080-exec-5] DEBUG o.s.orm.jpa.JpaTransactionManager -- Participating in existing transaction
+11:27:29.965 [http-nio-8080-exec-5] DEBUG org.hibernate.orm.sql.exec -- Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+11:27:29.965 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL -- select ce1_0.customerId,ce1_0.address,ce1_0.name,ce1_0.regDate,ce1_0.tel from customer ce1_0 where ce1_0.customerId=?
+11:27:29.969 [http-nio-8080-exec-5] DEBUG o.s.orm.jpa.JpaTransactionManager -- Found thread-bound EntityManager [SessionImpl(1330463051<open>)] for JPA transaction
+11:27:29.969 [http-nio-8080-exec-5] DEBUG o.s.orm.jpa.JpaTransactionManager -- Participating in existing transaction
+11:27:29.991 [http-nio-8080-exec-5] DEBUG o.h.j.i.PersistenceUnitUtilImpl -- jakarta.persistence.PersistenceUnitUtil.getIdentifier is only intended to work with enhanced entities (although Hibernate also adapts this support to its proxies); however the passed entity was not enhanced (nor a proxy).. may not be able to read identifier
+11:27:30.034 [http-nio-8080-exec-5] DEBUG o.s.orm.jpa.JpaTransactionManager -- Initiating transaction commit
+11:27:30.034 [http-nio-8080-exec-5] DEBUG o.s.orm.jpa.JpaTransactionManager -- Committing JPA transaction on EntityManager [SessionImpl(1330463051<open>)]
+11:27:30.034 [http-nio-8080-exec-5] DEBUG o.h.e.t.internal.TransactionImpl -- committing
+11:27:30.034 [http-nio-8080-exec-5] DEBUG o.h.e.i.AbstractFlushingEventListener -- Processing flush-time cascades
+11:27:30.034 [http-nio-8080-exec-5] DEBUG o.h.e.i.AbstractFlushingEventListener -- Dirty checking collections
+11:27:30.034 [http-nio-8080-exec-5] DEBUG o.h.e.i.AbstractFlushingEventListener -- Flushed: 0 insertions, 0 updates, 1 deletions to 1 objects
+11:27:30.034 [http-nio-8080-exec-5] DEBUG o.h.e.i.AbstractFlushingEventListener -- Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+11:27:30.034 [http-nio-8080-exec-5] DEBUG o.h.internal.util.EntityPrinter -- Listing entities:
+11:27:30.034 [http-nio-8080-exec-5] DEBUG o.h.internal.util.EntityPrinter -- com.example.pos_backend.Entity.CustomerEntity{address=galle, customerId=200010124569, name=sakuni, regDate=2012-10-14, tel=071456984}
+11:27:30.048 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL -- delete from customer where customerId=?
+11:27:30.572 [http-nio-8080-exec-5] DEBUG o.s.orm.jpa.JpaTransactionManager -- Closing JPA EntityManager [SessionImpl(1330463051<open>)] after transaction
+11:27:30.586 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -- Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+11:27:30.587 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -- Nothing to write: null body
+11:27:30.588 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet -- Completed 204 NO_CONTENT
+11:27:41.248 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet -- POST "/POS_Backend/api/v1/customer", parameters={multipart}
+11:27:41.249 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -- Mapped to com.example.pos_backend.controller.CustomerController#saveCustomer(String, String, String, String, String)
+11:27:42.536 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.RequestPartMethodArgumentResolver -- Read "application/octet-stream" to ["200010124569"]
+11:27:42.543 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.RequestPartMethodArgumentResolver -- Read "application/octet-stream" to ["galle"]
+11:27:42.543 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.RequestPartMethodArgumentResolver -- Read "application/octet-stream" to ["sakuni"]
+11:27:42.543 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.RequestPartMethodArgumentResolver -- Read "application/octet-stream" to ["2012-10-14"]
+11:27:42.544 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.RequestPartMethodArgumentResolver -- Read "application/octet-stream" to ["071456984"]
+11:27:42.545 [http-nio-8080-exec-6] DEBUG o.s.orm.jpa.JpaTransactionManager -- Creating new transaction with name [com.example.pos_backend.service.impl.CustomerServiceImpl.saveCustomer]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+11:27:42.545 [http-nio-8080-exec-6] DEBUG o.s.orm.jpa.JpaTransactionManager -- Opened new EntityManager [SessionImpl(837857737<open>)] for JPA transaction
+11:27:42.545 [http-nio-8080-exec-6] DEBUG o.h.e.t.internal.TransactionImpl -- On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+11:27:42.545 [http-nio-8080-exec-6] DEBUG o.h.e.t.internal.TransactionImpl -- begin
+11:27:42.545 [http-nio-8080-exec-6] DEBUG o.s.j.d.DriverManagerDataSource -- Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/SuperMarket?createDatabaseIfNotExist=true]
+11:27:42.557 [http-nio-8080-exec-6] DEBUG o.s.orm.jpa.JpaTransactionManager -- Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@398216a9]
+11:27:42.559 [http-nio-8080-exec-6] DEBUG o.s.orm.jpa.JpaTransactionManager -- Found thread-bound EntityManager [SessionImpl(837857737<open>)] for JPA transaction
+11:27:42.559 [http-nio-8080-exec-6] DEBUG o.s.orm.jpa.JpaTransactionManager -- Participating in existing transaction
+11:27:42.559 [http-nio-8080-exec-6] DEBUG o.h.j.i.PersistenceUnitUtilImpl -- jakarta.persistence.PersistenceUnitUtil.getIdentifier is only intended to work with enhanced entities (although Hibernate also adapts this support to its proxies); however the passed entity was not enhanced (nor a proxy).. may not be able to read identifier
+11:27:42.577 [http-nio-8080-exec-6] DEBUG org.hibernate.orm.sql.ast.create -- Created new SQL alias : ce1_0
+11:27:42.577 [http-nio-8080-exec-6] DEBUG org.hibernate.orm.sql.ast.create -- Registration of TableGroup [StandardTableGroup(com.example.pos_backend.Entity.CustomerEntity)] with identifierForTableGroup [com.example.pos_backend.Entity.CustomerEntity] for NavigablePath [com.example.pos_backend.Entity.CustomerEntity] 
+11:27:42.577 [http-nio-8080-exec-6] DEBUG org.hibernate.orm.results.graph.AST -- DomainResult Graph:
+ \-EntityResultImpl [com.example.pos_backend.Entity.CustomerEntity]
+ |  +-BasicFetch [com.example.pos_backend.Entity.CustomerEntity.address]
+ |  +-BasicFetch [com.example.pos_backend.Entity.CustomerEntity.name]
+ |  +-BasicFetch [com.example.pos_backend.Entity.CustomerEntity.regDate]
+ |  \-BasicFetch [com.example.pos_backend.Entity.CustomerEntity.tel]
+
+11:27:42.577 [http-nio-8080-exec-6] DEBUG org.hibernate.orm.sql.ast.tree -- SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (ce1 : com.example.pos_backend.Entity.CustomerEntity) {
+          primaryTableReference : customer as ce1_0
+        }
+      }
+    }
+
+11:27:42.578 [http-nio-8080-exec-6] DEBUG org.hibernate.orm.sql.exec -- Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+11:27:42.578 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL -- select ce1_0.customerId,ce1_0.address,ce1_0.name,ce1_0.regDate,ce1_0.tel from customer ce1_0 where ce1_0.customerId=?
+11:27:42.579 [http-nio-8080-exec-6] DEBUG org.hibernate.orm.results -- Initializer list:
+	  com.example.pos_backend.Entity.CustomerEntity -> EntityJoinedFetchInitializer(com.example.pos_backend.Entity.CustomerEntity)@143359052 (SingleTableEntityPersister(com.example.pos_backend.Entity.CustomerEntity))
+
+11:27:42.605 [http-nio-8080-exec-6] DEBUG o.s.orm.jpa.JpaTransactionManager -- Initiating transaction commit
+11:27:42.605 [http-nio-8080-exec-6] DEBUG o.s.orm.jpa.JpaTransactionManager -- Committing JPA transaction on EntityManager [SessionImpl(837857737<open>)]
+11:27:42.605 [http-nio-8080-exec-6] DEBUG o.h.e.t.internal.TransactionImpl -- committing
+11:27:42.605 [http-nio-8080-exec-6] DEBUG o.h.e.i.AbstractFlushingEventListener -- Processing flush-time cascades
+11:27:42.606 [http-nio-8080-exec-6] DEBUG o.h.e.i.AbstractFlushingEventListener -- Dirty checking collections
+11:27:42.606 [http-nio-8080-exec-6] DEBUG o.h.e.i.AbstractFlushingEventListener -- Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+11:27:42.606 [http-nio-8080-exec-6] DEBUG o.h.e.i.AbstractFlushingEventListener -- Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+11:27:42.606 [http-nio-8080-exec-6] DEBUG o.h.internal.util.EntityPrinter -- Listing entities:
+11:27:42.606 [http-nio-8080-exec-6] DEBUG o.h.internal.util.EntityPrinter -- com.example.pos_backend.Entity.CustomerEntity{address=galle, customerId=200010124569, name=sakuni, regDate=2012-10-14, tel=071456984}
+11:27:42.632 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL -- insert into customer (address,name,regDate,tel,customerId) values (?,?,?,?,?)
+11:27:42.932 [http-nio-8080-exec-6] DEBUG o.s.orm.jpa.JpaTransactionManager -- Closing JPA EntityManager [SessionImpl(837857737<open>)] after transaction
+11:27:42.934 [http-nio-8080-exec-6] INFO  c.e.p.controller.CustomerController -- customer saved successfully !!!
+11:27:42.935 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -- Using 'application/json', given [*/*] and supported [application/json]
+11:27:42.935 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -- Nothing to write: null body
+11:27:42.935 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet -- Completed 201 CREATED
+11:35:11.550 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet -- POST "/POS_Backend/api/v1/item", parameters={multipart}
+11:35:11.550 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -- Mapped to com.example.pos_backend.controller.ItemController#saveItem(String, String, String, String)
+11:35:11.552 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.RequestPartMethodArgumentResolver -- Read "application/octet-stream" to ["sun light"]
+11:35:11.552 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.RequestPartMethodArgumentResolver -- Read "application/octet-stream" to ["soap"]
+11:35:11.552 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.RequestPartMethodArgumentResolver -- Read "application/octet-stream" to ["56"]
+11:35:11.552 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.RequestPartMethodArgumentResolver -- Read "application/octet-stream" to ["235"]
+11:35:11.553 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager -- Creating new transaction with name [com.example.pos_backend.service.impl.ItemServiceImpl.saveItem]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+11:35:11.554 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager -- Opened new EntityManager [SessionImpl(1852264175<open>)] for JPA transaction
+11:35:11.554 [http-nio-8080-exec-9] DEBUG o.h.e.t.internal.TransactionImpl -- On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+11:35:11.554 [http-nio-8080-exec-9] DEBUG o.h.e.t.internal.TransactionImpl -- begin
+11:35:11.554 [http-nio-8080-exec-9] DEBUG o.s.j.d.DriverManagerDataSource -- Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/SuperMarket?createDatabaseIfNotExist=true]
+11:35:12.746 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager -- Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@3f5debdc]
+11:35:12.749 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager -- Found thread-bound EntityManager [SessionImpl(1852264175<open>)] for JPA transaction
+11:35:12.749 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager -- Participating in existing transaction
+11:35:12.750 [http-nio-8080-exec-9] DEBUG o.h.j.i.PersistenceUnitUtilImpl -- jakarta.persistence.PersistenceUnitUtil.getIdentifier is only intended to work with enhanced entities (although Hibernate also adapts this support to its proxies); however the passed entity was not enhanced (nor a proxy).. may not be able to read identifier
+11:35:12.750 [http-nio-8080-exec-9] DEBUG org.hibernate.orm.sql.ast.create -- Created new SQL alias : ie1_0
+11:35:12.750 [http-nio-8080-exec-9] DEBUG org.hibernate.orm.sql.ast.create -- Registration of TableGroup [StandardTableGroup(com.example.pos_backend.Entity.ItemEntity)] with identifierForTableGroup [com.example.pos_backend.Entity.ItemEntity] for NavigablePath [com.example.pos_backend.Entity.ItemEntity] 
+11:35:12.751 [http-nio-8080-exec-9] DEBUG org.hibernate.orm.results.graph.AST -- DomainResult Graph:
+ \-EntityResultImpl [com.example.pos_backend.Entity.ItemEntity]
+ |  +-BasicFetch [com.example.pos_backend.Entity.ItemEntity.description]
+ |  +-BasicFetch [com.example.pos_backend.Entity.ItemEntity.name]
+ |  +-BasicFetch [com.example.pos_backend.Entity.ItemEntity.qty]
+ |  \-BasicFetch [com.example.pos_backend.Entity.ItemEntity.unitPrice]
+
+11:35:12.751 [http-nio-8080-exec-9] DEBUG org.hibernate.orm.sql.ast.tree -- SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (ie1 : com.example.pos_backend.Entity.ItemEntity) {
+          primaryTableReference : item as ie1_0
+        }
+      }
+    }
+
+11:35:12.751 [http-nio-8080-exec-9] DEBUG org.hibernate.orm.sql.exec -- Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+11:35:12.751 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL -- select ie1_0.itemCode,ie1_0.description,ie1_0.name,ie1_0.qty,ie1_0.unitPrice from item ie1_0 where ie1_0.itemCode=?
+11:35:12.793 [http-nio-8080-exec-9] DEBUG org.hibernate.orm.results -- Initializer list:
+	  com.example.pos_backend.Entity.ItemEntity -> EntityJoinedFetchInitializer(com.example.pos_backend.Entity.ItemEntity)@792147376 (SingleTableEntityPersister(com.example.pos_backend.Entity.ItemEntity))
+
+11:35:12.797 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager -- Initiating transaction commit
+11:35:12.797 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager -- Committing JPA transaction on EntityManager [SessionImpl(1852264175<open>)]
+11:35:12.797 [http-nio-8080-exec-9] DEBUG o.h.e.t.internal.TransactionImpl -- committing
+11:35:12.797 [http-nio-8080-exec-9] DEBUG o.h.e.i.AbstractFlushingEventListener -- Processing flush-time cascades
+11:35:12.797 [http-nio-8080-exec-9] DEBUG o.h.e.i.AbstractFlushingEventListener -- Dirty checking collections
+11:35:12.798 [http-nio-8080-exec-9] DEBUG o.h.e.i.AbstractFlushingEventListener -- Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+11:35:12.798 [http-nio-8080-exec-9] DEBUG o.h.e.i.AbstractFlushingEventListener -- Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+11:35:12.798 [http-nio-8080-exec-9] DEBUG o.h.internal.util.EntityPrinter -- Listing entities:
+11:35:12.798 [http-nio-8080-exec-9] DEBUG o.h.internal.util.EntityPrinter -- com.example.pos_backend.Entity.ItemEntity{unitPrice=235, itemCode=ITEM-556107f2-c562-489b-b6e9-7ef76cf56ee1, qty=56, name=sun light, description=soap}
+11:35:12.798 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL -- insert into item (description,name,qty,unitPrice,itemCode) values (?,?,?,?,?)
+11:35:13.383 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager -- Closing JPA EntityManager [SessionImpl(1852264175<open>)] after transaction
+11:35:13.384 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -- Using 'application/json', given [*/*] and supported [application/json]
+11:35:13.384 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -- Nothing to write: null body
+11:35:13.384 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet -- Completed 201 CREATED
+11:35:42.545 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet -- GET "/POS_Backend/api/v1/item/ITEM-556107f2-c562-489b-b6e9-7ef76cf56ee1", parameters={}
+11:35:42.545 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -- Mapped to com.example.pos_backend.controller.ItemController#getSelectedUser(String)
+11:35:42.546 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager -- Creating new transaction with name [com.example.pos_backend.service.impl.ItemServiceImpl.getItemById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+11:35:42.546 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager -- Opened new EntityManager [SessionImpl(692637327<open>)] for JPA transaction
+11:35:42.546 [http-nio-8080-exec-2] DEBUG o.h.e.t.internal.TransactionImpl -- On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+11:35:42.546 [http-nio-8080-exec-2] DEBUG o.h.e.t.internal.TransactionImpl -- begin
+11:35:42.546 [http-nio-8080-exec-2] DEBUG o.s.j.d.DriverManagerDataSource -- Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/SuperMarket?createDatabaseIfNotExist=true]
+11:35:44.084 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager -- Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@23b0a5ff]
+11:35:44.085 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager -- Found thread-bound EntityManager [SessionImpl(692637327<open>)] for JPA transaction
+11:35:44.085 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager -- Participating in existing transaction
+11:35:44.088 [http-nio-8080-exec-2] DEBUG org.hibernate.internal.SessionImpl -- Initializing proxy: [com.example.pos_backend.Entity.ItemEntity#ITEM-556107f2-c562-489b-b6e9-7ef76cf56ee1]
+11:35:44.088 [http-nio-8080-exec-2] DEBUG org.hibernate.orm.sql.exec -- Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+11:35:44.088 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL -- select ie1_0.itemCode,ie1_0.description,ie1_0.name,ie1_0.qty,ie1_0.unitPrice from item ie1_0 where ie1_0.itemCode=?
+11:35:44.091 [http-nio-8080-exec-2] DEBUG org.hibernate.orm.results -- Initializer list:
+	  com.example.pos_backend.Entity.ItemEntity -> EntityJoinedFetchInitializer(com.example.pos_backend.Entity.ItemEntity)@111001762 (SingleTableEntityPersister(com.example.pos_backend.Entity.ItemEntity))
+
+11:35:44.094 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager -- Initiating transaction commit
+11:35:44.095 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager -- Committing JPA transaction on EntityManager [SessionImpl(692637327<open>)]
+11:35:44.095 [http-nio-8080-exec-2] DEBUG o.h.e.t.internal.TransactionImpl -- committing
+11:35:44.095 [http-nio-8080-exec-2] DEBUG o.h.e.i.AbstractFlushingEventListener -- Processing flush-time cascades
+11:35:44.095 [http-nio-8080-exec-2] DEBUG o.h.e.i.AbstractFlushingEventListener -- Dirty checking collections
+11:35:44.096 [http-nio-8080-exec-2] DEBUG o.h.e.i.AbstractFlushingEventListener -- Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+11:35:44.096 [http-nio-8080-exec-2] DEBUG o.h.e.i.AbstractFlushingEventListener -- Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+11:35:44.096 [http-nio-8080-exec-2] DEBUG o.h.internal.util.EntityPrinter -- Listing entities:
+11:35:44.096 [http-nio-8080-exec-2] DEBUG o.h.internal.util.EntityPrinter -- com.example.pos_backend.Entity.ItemEntity{unitPrice=235, itemCode=ITEM-556107f2-c562-489b-b6e9-7ef76cf56ee1, qty=56, name=sun light, description=soap}
+11:35:44.097 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager -- Closing JPA EntityManager [SessionImpl(692637327<open>)] after transaction
+11:35:44.099 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor -- Using 'application/json', given [*/*] and supported [application/json]
+11:35:44.100 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor -- Writing [ItemDto(code=ITEM-556107f2-c562-489b-b6e9-7ef76cf56ee1, name=sun light, description=soap, qty=56, un (truncated)...]
+11:35:44.101 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet -- Completed 200 OK
+11:35:48.983 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet -- GET "/POS_Backend/api/v1/item/ITEM-556107f2-c562-489b-b6e9-7ef76cf56ee", parameters={}
+11:35:48.983 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -- Mapped to com.example.pos_backend.controller.ItemController#getSelectedUser(String)
+11:35:48.983 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager -- Creating new transaction with name [com.example.pos_backend.service.impl.ItemServiceImpl.getItemById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+11:35:48.983 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager -- Opened new EntityManager [SessionImpl(594760932<open>)] for JPA transaction
+11:35:48.983 [http-nio-8080-exec-3] DEBUG o.h.e.t.internal.TransactionImpl -- On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+11:35:48.983 [http-nio-8080-exec-3] DEBUG o.h.e.t.internal.TransactionImpl -- begin
+11:35:48.984 [http-nio-8080-exec-3] DEBUG o.s.j.d.DriverManagerDataSource -- Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/SuperMarket?createDatabaseIfNotExist=true]
+11:35:49.191 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager -- Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@7204fd89]
+11:35:49.191 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager -- Found thread-bound EntityManager [SessionImpl(594760932<open>)] for JPA transaction
+11:35:49.191 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager -- Participating in existing transaction
+11:35:49.192 [http-nio-8080-exec-3] DEBUG org.hibernate.internal.SessionImpl -- Initializing proxy: [com.example.pos_backend.Entity.ItemEntity#ITEM-556107f2-c562-489b-b6e9-7ef76cf56ee]
+11:35:49.192 [http-nio-8080-exec-3] DEBUG org.hibernate.orm.sql.exec -- Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+11:35:49.192 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL -- select ie1_0.itemCode,ie1_0.description,ie1_0.name,ie1_0.qty,ie1_0.unitPrice from item ie1_0 where ie1_0.itemCode=?
+11:35:49.202 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager -- Initiating transaction rollback
+11:35:49.202 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager -- Rolling back JPA transaction on EntityManager [SessionImpl(594760932<open>)]
+11:35:49.202 [http-nio-8080-exec-3] DEBUG o.h.e.t.internal.TransactionImpl -- rolling back
+11:35:49.203 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager -- Closing JPA EntityManager [SessionImpl(594760932<open>)] after transaction
+11:35:49.204 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet -- Failed to complete request: org.modelmapper.MappingException: ModelMapper mapping errors:
+
+1) Error mapping com.example.pos_backend.Entity.ItemEntity to com.example.pos_backend.Dto.dto.ItemDto
+
+1 error
+11:35:54.356 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet -- GET "/POS_Backend/api/v1/item/ITEM-556107f2-c562-489b-b6e9-7ef76cf56ee1", parameters={}
+11:35:54.357 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -- Mapped to com.example.pos_backend.controller.ItemController#getSelectedUser(String)
+11:35:54.357 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager -- Creating new transaction with name [com.example.pos_backend.service.impl.ItemServiceImpl.getItemById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+11:35:54.357 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager -- Opened new EntityManager [SessionImpl(1572340267<open>)] for JPA transaction
+11:35:54.357 [http-nio-8080-exec-4] DEBUG o.h.e.t.internal.TransactionImpl -- On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+11:35:54.357 [http-nio-8080-exec-4] DEBUG o.h.e.t.internal.TransactionImpl -- begin
+11:35:54.357 [http-nio-8080-exec-4] DEBUG o.s.j.d.DriverManagerDataSource -- Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/SuperMarket?createDatabaseIfNotExist=true]
+11:35:54.390 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager -- Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@5740695b]
+11:35:54.390 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager -- Found thread-bound EntityManager [SessionImpl(1572340267<open>)] for JPA transaction
+11:35:54.390 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager -- Participating in existing transaction
+11:35:54.390 [http-nio-8080-exec-4] DEBUG org.hibernate.internal.SessionImpl -- Initializing proxy: [com.example.pos_backend.Entity.ItemEntity#ITEM-556107f2-c562-489b-b6e9-7ef76cf56ee1]
+11:35:54.391 [http-nio-8080-exec-4] DEBUG org.hibernate.orm.sql.exec -- Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+11:35:54.391 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL -- select ie1_0.itemCode,ie1_0.description,ie1_0.name,ie1_0.qty,ie1_0.unitPrice from item ie1_0 where ie1_0.itemCode=?
+11:35:54.395 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager -- Initiating transaction commit
+11:35:54.395 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager -- Committing JPA transaction on EntityManager [SessionImpl(1572340267<open>)]
+11:35:54.395 [http-nio-8080-exec-4] DEBUG o.h.e.t.internal.TransactionImpl -- committing
+11:35:54.396 [http-nio-8080-exec-4] DEBUG o.h.e.i.AbstractFlushingEventListener -- Processing flush-time cascades
+11:35:54.396 [http-nio-8080-exec-4] DEBUG o.h.e.i.AbstractFlushingEventListener -- Dirty checking collections
+11:35:54.396 [http-nio-8080-exec-4] DEBUG o.h.e.i.AbstractFlushingEventListener -- Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+11:35:54.396 [http-nio-8080-exec-4] DEBUG o.h.e.i.AbstractFlushingEventListener -- Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+11:35:54.396 [http-nio-8080-exec-4] DEBUG o.h.internal.util.EntityPrinter -- Listing entities:
+11:35:54.396 [http-nio-8080-exec-4] DEBUG o.h.internal.util.EntityPrinter -- com.example.pos_backend.Entity.ItemEntity{unitPrice=235, itemCode=ITEM-556107f2-c562-489b-b6e9-7ef76cf56ee1, qty=56, name=sun light, description=soap}
+11:35:54.396 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager -- Closing JPA EntityManager [SessionImpl(1572340267<open>)] after transaction
+11:35:54.397 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor -- Using 'application/json', given [*/*] and supported [application/json]
+11:35:54.397 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor -- Writing [ItemDto(code=ITEM-556107f2-c562-489b-b6e9-7ef76cf56ee1, name=sun light, description=soap, qty=56, un (truncated)...]
+11:35:54.398 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet -- Completed 200 OK

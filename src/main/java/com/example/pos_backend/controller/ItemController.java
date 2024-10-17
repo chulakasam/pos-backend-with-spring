@@ -1,6 +1,7 @@
 package com.example.pos_backend.controller;
 
 import com.example.pos_backend.Dto.dto.ItemDto;
+import com.example.pos_backend.exceotion.DataPersistException;
 import com.example.pos_backend.service.ItemService;
 import com.example.pos_backend.util.AppUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,16 +26,22 @@ public class ItemController {
             @RequestPart("unitPrice")String unitPrice
     )
     {
-        String item_code = AppUtil.generateItemId();
-        ItemDto itemDto = new ItemDto();
-        itemDto.setCode(item_code);
-        itemDto.setName(name);
-        itemDto.setDescription(description);
-        itemDto.setQty(qty);
-        itemDto.setUnitPrice(unitPrice);
+        try{
+            String item_code = AppUtil.generateItemId();
+            ItemDto itemDto = new ItemDto();
+            itemDto.setCode(item_code);
+            itemDto.setName(name);
+            itemDto.setDescription(description);
+            itemDto.setQty(qty);
+            itemDto.setUnitPrice(unitPrice);
 
-        itemService.saveItem(itemDto);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+            itemService.saveItem(itemDto);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        }catch(DataPersistException e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
     @GetMapping(value = "/{itemCode}",produces= MediaType.APPLICATION_JSON_VALUE)
     public ItemDto getSelectedUser(@PathVariable("itemCode") String itemCode){
