@@ -1,9 +1,13 @@
 package com.example.pos_backend.controller;
 
 import com.example.pos_backend.Dto.dto.ItemDto;
+import com.example.pos_backend.Dto.status.ItemStatus;
+import com.example.pos_backend.customStatusCodes.SelectedUserErrorStatus;
 import com.example.pos_backend.exceotion.DataPersistException;
 import com.example.pos_backend.service.ItemService;
 import com.example.pos_backend.util.AppUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,6 +21,7 @@ import java.util.regex.Pattern;
 public class ItemController {
     @Autowired
     private ItemService itemService;
+    private static Logger logger= LoggerFactory.getLogger(ItemController.class);
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> saveItem(
@@ -36,6 +41,7 @@ public class ItemController {
             itemDto.setUnitPrice(unitPrice);
 
             itemService.saveItem(itemDto);
+            logger.info("item saved successfully !!!");
             return new ResponseEntity<>(HttpStatus.CREATED);
         }catch(DataPersistException e){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -44,7 +50,14 @@ public class ItemController {
         }
     }
     @GetMapping(value = "/{itemCode}",produces= MediaType.APPLICATION_JSON_VALUE)
-    public ItemDto getSelectedUser(@PathVariable("itemCode") String itemCode){
+    public ItemStatus getSelectedItem(@PathVariable("itemCode") String itemCode){
+        String regexForItemCode = "^ITEM-[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$";
+        Pattern regexPattern = Pattern.compile(regexForItemCode);
+        var regexMatcher = regexPattern.matcher(itemCode);
+
+        if (!regexMatcher.matches()) {
+            return new SelectedUserErrorStatus(1,"Item Code is not valid");
+        }
         return itemService.getItemById(itemCode);
     }
 
