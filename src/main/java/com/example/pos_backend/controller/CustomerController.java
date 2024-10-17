@@ -3,6 +3,8 @@ package com.example.pos_backend.controller;
 import com.example.pos_backend.Dto.dto.CustomerDto;
 import com.example.pos_backend.service.CustomerService;
 import com.example.pos_backend.util.AppUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class CustomerController {
     @Autowired
     private CustomerService customerService;
+    private static Logger logger= LoggerFactory.getLogger(CustomerController.class);
     //------TO DO-------------customer save
     @PostMapping( consumes= MediaType.MULTIPART_FORM_DATA_VALUE, produces= MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> saveCustomer(
@@ -31,6 +34,7 @@ public class CustomerController {
         customerDto.setRegDate(date);
         customerDto.setTel(tel);
         customerService.saveCustomer(customerDto);
+        logger.info("customer saved successfully !!!");
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
    //------TO DO-------------customer update
