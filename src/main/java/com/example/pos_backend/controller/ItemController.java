@@ -92,6 +92,7 @@ public class ItemController {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
             itemService.deleteItem(itemCode);
+            logger.info("Item deleted successfully !!!");
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }catch (UserNotFoundException e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

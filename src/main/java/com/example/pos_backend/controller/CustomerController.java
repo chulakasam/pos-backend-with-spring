@@ -15,6 +15,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 @RestController
@@ -90,6 +91,10 @@ public class CustomerController {
          }
     }
 //------TO DO-------------customer getAll
+    @GetMapping(produces=MediaType.APPLICATION_JSON_VALUE)
+    public List<CustomerDto> getAllCustomers(){
+        return customerService.getAllUsers();
+    }
 
 //------TO DO-------------customer get by ID
     @GetMapping(value="/{customerId}",produces = MediaType.APPLICATION_JSON_VALUE)
