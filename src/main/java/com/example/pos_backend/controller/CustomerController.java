@@ -1,6 +1,9 @@
 package com.example.pos_backend.controller;
 
 import com.example.pos_backend.Dto.dto.CustomerDto;
+import com.example.pos_backend.Dto.status.CustomerStatus;
+import com.example.pos_backend.customStatusCodes.SelectedUserErrorStatus;
+import com.example.pos_backend.exceotion.DataPersistException;
 import com.example.pos_backend.service.CustomerService;
 import com.example.pos_backend.util.AppUtil;
 import org.slf4j.Logger;
@@ -10,6 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.regex.Pattern;
 
 @RestController
 @RequestMapping("api/v1/customer")
@@ -26,16 +31,21 @@ public class CustomerController {
             @RequestPart("regDate") String date,
             @RequestPart("tel") String tel
     ){
-
-        CustomerDto customerDto = new CustomerDto();
-        customerDto.setCustomerId(nic);
-        customerDto.setAddress(address);
-        customerDto.setName(name);
-        customerDto.setRegDate(date);
-        customerDto.setTel(tel);
-        customerService.saveCustomer(customerDto);
-        logger.info("customer saved successfully !!!");
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        try{
+            CustomerDto customerDto = new CustomerDto();
+            customerDto.setCustomerId(nic);
+            customerDto.setAddress(address);
+            customerDto.setName(name);
+            customerDto.setRegDate(date);
+            customerDto.setTel(tel);
+            customerService.saveCustomer(customerDto);
+            logger.info("customer saved successfully !!!");
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        }catch(DataPersistException e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
    //------TO DO-------------customer update
     @PutMapping(value = "/{customerId}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
@@ -64,8 +74,15 @@ public class CustomerController {
 
 //------TO DO-------------customer get by ID
     @GetMapping(value="/{customerId}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public CustomerDto getSelectedCustomer(@PathVariable("customerId") String customerId){
-              return customerService.getCustomerById(customerId);
+    public CustomerStatus getSelectedCustomer(@PathVariable("customerId") String customerId){
+        String regexForUserID = "^(\\d{9}[VXvx]|\\d{12})$";
+        Pattern regexPattern = Pattern.compile(regexForUserID);
+        var regexMatcher = regexPattern.matcher(customerId);
+
+        if(!regexMatcher.matches()){
+            return new SelectedUserErrorStatus(1,"user id invalid");
+        }
+        return customerService.getCustomerById(customerId);
     }
 
 

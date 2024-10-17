@@ -1,4 +1,6 @@
 package com.example.pos_backend.Dto;
 
-public interface SuperDto {
+import java.io.Serializable;
+
+public interface SuperDto extends Serializable {
 }
