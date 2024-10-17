@@ -4,6 +4,7 @@ import com.example.pos_backend.Dto.dto.CustomerDto;
 import com.example.pos_backend.Dto.status.CustomerStatus;
 import com.example.pos_backend.customStatusCodes.SelectedUserErrorStatus;
 import com.example.pos_backend.exceotion.DataPersistException;
+import com.example.pos_backend.exceotion.UserNotFoundException;
 import com.example.pos_backend.service.CustomerService;
 import com.example.pos_backend.util.AppUtil;
 import org.slf4j.Logger;
@@ -67,8 +68,21 @@ public class CustomerController {
 //------TO DO-------------customer delete
     @DeleteMapping(value = "/{customerId}")
     public ResponseEntity<Void> deleteCustomer(@PathVariable("customerId") String customerId){
-         customerService.deleteCustomer(customerId);
-         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        String regexForUserID = "^(\\d{9}[VXvx]|\\d{12})$";
+        Pattern regexPattern = Pattern.compile(regexForUserID);
+        var regexMatcher = regexPattern.matcher(customerId);
+
+         try{
+             if (!regexMatcher.matches()){
+                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+             }
+             customerService.deleteCustomer(customerId);
+             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+         }catch (UserNotFoundException e){
+             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+         }catch (Exception e){
+             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+         }
     }
 //------TO DO-------------customer getAll
 
