@@ -15,6 +15,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 @RestController
@@ -100,6 +101,16 @@ public class ItemController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping(produces=MediaType.APPLICATION_JSON_VALUE)
+    public List<ItemDto> getAllItems(){
+        return itemService.getAllItems();
+    }
+
+
+
+
+
 
 
 }
