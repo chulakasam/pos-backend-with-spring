@@ -31,7 +31,8 @@ public class CustomerController {
             @RequestPart("name") String name,
             @RequestPart("regDate") String date,
             @RequestPart("tel") String tel
-    ){
+    )
+    {
         try{
             CustomerDto customerDto = new CustomerDto();
             customerDto.setCustomerId(nic);
@@ -64,6 +65,7 @@ public class CustomerController {
         customerDto.setRegDate(date);
         customerDto.setTel(tel);
         customerService.updateCustomer(customerId,customerDto);
+        logger.info("update successfully !!!");
     }
 //------TO DO-------------customer delete
     @DeleteMapping(value = "/{customerId}")
@@ -77,10 +79,13 @@ public class CustomerController {
                  return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
              }
              customerService.deleteCustomer(customerId);
+             logger.info("customer delete successfully !!!");
              return new ResponseEntity<>(HttpStatus.NO_CONTENT);
          }catch (UserNotFoundException e){
+             logger.warn("404 Not Found Status",e.getMessage());
              return new ResponseEntity<>(HttpStatus.NOT_FOUND);
          }catch (Exception e){
+             logger.error("delete unsuccessfully !!!");
              return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
          }
     }
@@ -94,6 +99,7 @@ public class CustomerController {
         var regexMatcher = regexPattern.matcher(customerId);
 
         if(!regexMatcher.matches()){
+            logger.error("Http 400 Bad Request!!!");
             return new SelectedUserErrorStatus(1,"user id invalid");
         }
         return customerService.getCustomerById(customerId);
