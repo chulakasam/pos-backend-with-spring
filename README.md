@@ -16,9 +16,10 @@ This API is used to manage the core functionalities in a POS system and this is 
     DELETE  : api/v1/customer/{customerId} ->(use to delete customer)
 
 * Item end point :
-POST : api/v1/item   -> (use to save item)
-GET  : api/v1/item/{itemCode}  -> (use to search by id item)
-PUT  : api/v1/item/{itemCode}  ->(use to update item)
+  
+POST : api/v1/item               -> (use to save item)
+GET  : api/v1/item/{itemCode}    -> (use to search by id item)
+PUT  : api/v1/item/{itemCode}    ->(use to update item)
 DELETE  : api/v1/item/{itemCode} ->(use to delete item)
 
 * Order end point :
