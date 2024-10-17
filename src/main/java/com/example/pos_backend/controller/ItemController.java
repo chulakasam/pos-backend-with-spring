@@ -4,6 +4,7 @@ import com.example.pos_backend.Dto.dto.ItemDto;
 import com.example.pos_backend.Dto.status.ItemStatus;
 import com.example.pos_backend.customStatusCodes.SelectedUserErrorStatus;
 import com.example.pos_backend.exceotion.DataPersistException;
+import com.example.pos_backend.exceotion.UserNotFoundException;
 import com.example.pos_backend.service.ItemService;
 import com.example.pos_backend.util.AppUtil;
 import org.slf4j.Logger;
@@ -82,8 +83,21 @@ public class ItemController {
 
     @DeleteMapping(value = "/{itemCode}")
     public ResponseEntity<Void> deleteItem(@PathVariable("itemCode") String itemCode){
-        itemService.deleteItem(itemCode);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        String regexForItemCode = "^ITEM-[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$";
+        Pattern regexPattern = Pattern.compile(regexForItemCode);
+        var regexMatcher = regexPattern.matcher(itemCode);
+
+        try {
+            if (!regexMatcher.matches()){
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            itemService.deleteItem(itemCode);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }catch (UserNotFoundException e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 
