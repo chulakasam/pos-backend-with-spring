@@ -1,37 +1,55 @@
-# POS-BACKEND-Api-with spring
+# POS Backend API with Spring
 
-This API is used to manage the core functionalities in a POS system and this is including manage customer,items and orders functions.API is built with using Spring Frame work ,follow REST full architecture pattern.
+This API is built to manage core functionalities of a Point of Sale (POS) system, including operations for customers, items, and orders. The API is built using the Spring Framework and follows the RESTful architecture pattern.
 
-# features
-* Manage customer : Add ,Update ,Delete and Customer search by ID.
-* Manage Item: Add ,Update ,Delete and Item search by ID.
-* Manage order: Make an order and update place order.
+## Features
 
-# End points
+### 1. **Customer Management**
+- Add new customers.
+- Update existing customer details.
+- Delete customers.
+- Search for customers by their ID.
 
-* Customer end point : 
-    POST : api/v1/customer   -> (use to save customer)
-    GET  : api/v1/customer/{customerId}  -> (use to search by id customer)
-    PUT  : api/v1/customer/{customerId}  ->(use to update customer)
-    DELETE  : api/v1/customer/{customerId} ->(use to delete customer)
+### 2. **Item Management**
+- Add new items to the inventory.
+- Update item details.
+- Delete items from the system.
+- Search for items by their item code.
 
-* Item end point :
-POST : api/v1/item   -> (use to save item)
-GET  : api/v1/item/{itemCode}  -> (use to search by id item)
-PUT  : api/v1/item/{itemCode}  ->(use to update item)
-DELETE  : api/v1/item/{itemCode} ->(use to delete item)
+### 3. **Order Management**
+- Place new orders.
+- Update or manage existing orders.
 
-* Order end point :
-POST : api/v1/order -> (use to make a order)
+## Endpoints
 
-# Technologies 
-Framework : Spring Framework
-Database  : mySQL
-Dependency: Maven
-ORM Tool  : hibernate with JPA
-Language  : java
-version   : JDK 21
-Request and Response : JSON
+### **Customer Endpoints**
+- **POST**: `/api/v1/customer` - Add a new customer.
+- **GET**: `/api/v1/customer/{customerId}` - Search for a customer by their ID.
+- **PUT**: `/api/v1/customer/{customerId}` - Update customer details.
+- **DELETE**: `/api/v1/customer/{customerId}` - Delete a customer.
 
-# License
-project is licensed through the  LICENSE.txt file.
+### **Item Endpoints**
+- **POST**: `/api/v1/item` - Add a new item.
+- **GET**: `/api/v1/item/{itemCode}` - Search for an item by its code.
+- **PUT**: `/api/v1/item/{itemCode}` - Update item details.
+- **DELETE**: `/api/v1/item/{itemCode}` - Delete an item.
+
+### **Order Endpoints**
+- **POST**: `/api/v1/order` - Place an order.
+
+## Technologies Used
+
+- **Framework**: Spring Framework
+- **Database**: MySQL
+- **Dependency Management**: Maven
+- **ORM**: Hibernate with JPA
+- **Language**: Java
+- **Version**: JDK 21
+- **Request/Response Format**: JSON
+
+## Getting Started
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/chulakasam/pos-backend-api.git
+
